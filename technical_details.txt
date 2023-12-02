@@ -1,0 +1,77 @@
+For the client-side of the app
+
+npm installed dependencies:
+- express - to develop the node app
+- morgan - log a message at every request
+- nodemon - to restart automatically the server
+- ejs - to create dynamic html
+- body-parser - serialize the data using {body}
+- dotenv - separate the secret data from the source-code - avoid sharing database login credential with other people, for example
+- mongoose - connect mongodb
+- axios - easy to make req in express app
+
+- express-validator - lib that allows us to validate things in app
+- bcrypt - library for hashing text (password at authentication part)
+
+
+
+folders:
+
+assets:
+- css - css files
+- img - images
+- js - js files
+
+views: html files, default folder for html files
+
+server: here are created services as model, mongodb connection
+ - MVC - model view controller design pattern
+ - model - mongodb data: data validation and processing, creating mongo scheme 
+ - controller - user req, creating functions
+
+
+views -> include - folder for partial files; they are represented with _
+
+i erased the html files after implanting the functionality to .ejs files
+
+
+For the server-side of the app:
+- creating routes, services
+- mongodb -in cloud-> 
+    database access: user - admin, password - admin
+    ip access: 5.2.198.48/32
+    config.env file: mongodb+srv://admin:<password>@cluster0.abbzmf6.mongodb.net/?retryWrites=true&w=majority
+                     mongodb+srv://admin:admin@cluster0.abbzmf6.mongodb.net/?retryWrites=true&w=majority
+
+
+- in model folder -> model.js - db scheme
+
+API route in server -> routes -> router.js
+
+in services folder -> render.js - connect the db in order to get the ejs files updated 
+
+in views-> include -> _show.ejs - all the data of pieces 
+_show.ejs is called in index.ejs, just like _header.ejs and _footer.ejs
+in routes -> router.js we have add-piece and update-piece
+
+we use jquery library (for DOM operations) and link it in _footer.ejs
+-> by pressing submit in add_piece.ejs -> the data is stored in db, too
+we have mongoose 
+
+
+
+For auth:
+
+JWT - JSON Web Token contains info about who the client is
+    - goes from client - server
+    - not for sensitive info, as password, bcs it can be easily decoded using jwt.io 
+    - to ensure the user is really authenticated
+
+to restrictionate access between public and private-> middleware
+JSON token - inside Header <=> authorized to access file
+
+
+pm2 start server.js -> start server, app is online
+pm2 logs -> start server
+pm2 stop server -> stop server, app is offline
+pm2 ls -> lists the processes 

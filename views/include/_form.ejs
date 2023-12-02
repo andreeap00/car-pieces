@@ -1,0 +1,25 @@
+<!-- form handling -->
+<form action ="/api/pieces" method="POST" id="add_piece"> 
+    <!--use post route to store the inserted data in pieces-->
+    <div class="new_piece">
+        <div class="form-group">
+            <label for="pieceType" class="text-dark">Piece Type</label>
+            <input type="hidden" pieceType="id" value="">
+            <input type ="text" name="pieceType" value="" placeholder="DC Motor">
+        </div>
+        <div class="form-group">
+            <label for="pieceNumber" class="text-dark">Number of Pieces</label>
+            <input type ="text" name="pieceNumber" value="" placeholder="1400">
+        </div>
+        <div class="form-group">
+            <label for="descript" class="text-dark">Description</label>
+            <input type ="text" name="descript" value="" placeholder="DC Motor for EV">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+    
+    
+    </div>
+</form>
